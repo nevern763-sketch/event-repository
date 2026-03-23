@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    header {
+      background: #333;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+    section {
+      padding: 20px;
+      background: #fff;
+      margin: 20px;
+      border-radius: 8px;
+    }
+    form input, form select {
+      display: block;
+      margin: 10px 0;
+      padding: 8px;
+      width: 100%;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    table, th, td {
+      border: 1px solid #333;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Web Development Workshop</h1>
+  <p>Register now to join our exciting event!</p>
+</header>
+
+<section>
+  <h2>Event Registration Form</h2>
+  <form id="registrationForm">
+    <label>Name:</label>
+    <input type="text" id="name" required>
+
+    <label>Email:</label>
+    <input type="email" id="email" required>
+
+    <label>Phone Number:</label>
+    <input type="tel" id="phone" required>
+
+    <label>Date of Birth:</label>
+    <input type="date" id="dob" required>
+
+    <label>Gender:</label>
+    <select id="gender" required>
+      <option value="">Select</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+
+    <label>Event Mode:</label>
+    <select id="mode" required>
+      <option value="">Select</option>
+      <option>Online</option>
+      <option>Offline</option>
+    </select>
+
+    <button type="submit">Register</button>
+  </form>
+</section>
+
+<section>
+  <h2>Registered Participants</h2>
+  <table id="participantsTable">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Event</th>
+      <th>Mode</th>
+    </tr>
+    <tr>
+      <td>XYZ</td>
+      <td>xyz@gmail.com</td>
+      <td>9876543210</td>
+      <td>Web Development Workshop</td>
+      <td>Offline</td>
+    </tr>
+  </table>
+</section>
+
+<footer>
+  <p>Contact Email: events@abccollege.edu</p>
+  <p>Help Desk Number: +91 94444 12345</p>
+  <p>Support Timings: 9:00 AM - 4:30 PM (Working Days Only)</p>
+  <p>&copy; 2026 Department of Computer Science, ABC Engineering College. All Rights Reserved.</p>
+</footer>
+
+<script>
+  const form = document.getElementById('registrationForm');
+  const table = document.getElementById('participantsTable');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const mode = document.getElementById('mode').value;
+
+    const newRow = table.insertRow();
+    newRow.insertCell(0).innerText = name;
+    newRow.insertCell(1).innerText = email;
+    newRow.insertCell(2).innerText = phone;
+    newRow.insertCell(3).innerText = "Web Development Workshop";
+    newRow.insertCell(4).innerText = mode;
+
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
